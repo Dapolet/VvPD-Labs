@@ -1,0 +1,17 @@
+definitely_missing_file.txt: No such file or directory
+=== растущий массив: malloc/realloc/free ===
+size = 10, capacity = 16
+data = 0 1 4 9 16 25 36 49 64 81
+
+=== malloc и calloc: разные гарантии ===
+malloc block at 0x603000001cf0: содержимое не читаем (значения не определены)
+calloc block at 0x603000001d20: все 5 значений равны нулю: yes
+
+=== goto cleanup: единая точка освобождения ===
+process_file: read 5 values, sum = 30
+read_sum(existing) = 0
+read_sum(missing)  = 1 (очистка всё равно выполнена)
+
+=== sizeof *data вместо sizeof(int) ===
+sizeof *example = 4, sizeof(int) = 4
+vector freed: data=0x0, size=0, capacity=0

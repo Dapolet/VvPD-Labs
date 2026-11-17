@@ -1,0 +1,5 @@
+# VPD Lab 05 — тот же набор параметров, что в JSON-примере ниже.
+# YAML использует отступы, а не фигурные скобки; табуляция не используется.
+database: students.dat
+export_file: json/export.json
+show_stats: false

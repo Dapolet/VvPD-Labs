@@ -1,0 +1,2 @@
+$ ./database/vpddb --database artifacts/students.dat --check
+integrity: ok

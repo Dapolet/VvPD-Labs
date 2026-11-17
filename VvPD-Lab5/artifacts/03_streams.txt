@@ -1,0 +1,26 @@
+=== > and >> : stdout.txt ===
+Copied: 17 bytes
+Copied: 17 bytes
+=== stderr.txt (expected empty) ===
+=== 2> : unknown_stdout.txt (expected empty) ===
+=== 2> : errors.txt ===
+Error: unknown option: --vot-takogo-vida
+Usage: filetool --input-file <file> --output-file <file> [--show-stats]
+       filetool --show-args [other options]
+
+Options:
+  --input-file <file>   source file
+  --output-file <file>  destination file
+  --show-stats          print the number of copied bytes to stdout
+  --show-args           print argc and every argv element
+  --help                show this help
+unknown option exit code: 64
+=== 2>&1 : all.txt ===
+Error: cannot open input file artifacts/streams/missing.txt: No such file or directory
+missing input exit code: 66
+=== | : pipe.txt ===
+COPIED: 17 BYTES
+=== copied files are byte-identical ===
+copy.txt: identical
+copy2.txt: identical
+copy3.txt: identical

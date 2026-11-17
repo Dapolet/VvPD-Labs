@@ -1,0 +1,8 @@
+$ ./database/vpddb --database artifacts/students.dat --init --seed --show-stats
+initialized database: artifacts/students.dat
+database: artifacts/students.dat
+faculties: 2
+groups: 3
+students: 5
+index: open addressing, id -> position
+file_bytes: 664

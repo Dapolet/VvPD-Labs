@@ -1,0 +1,151 @@
+VPD Lab 05 — test cases
+=======================
+
+Все команды выполняются из корня VvPD-Lab5. Автоматическая версия:
+    make test
+Файл с результатами: artifacts/tests.txt.
+
+1. Точка входа и argv
+---------------------
+./filetool/argv_demo alpha "beta gamma"
+    Ожидание: код 0; argc = 3; argv[2] = "beta gamma".
+./filetool/argv_void_demo
+    Ожидание: код 0; сообщение о форме int main(void).
+
+2. filetool и коды завершения
+-----------------------------
+./filetool/filetool --input-file tests/sample_input.txt \
+    --output-file /tmp/copy.txt --show-stats
+    Ожидание: код 0; "Copied: 131 bytes"; cmp с исходником совпадает.
+
+./filetool/filetool --vot-takogo-vida
+    Ожидание: код 64; ошибка в stderr; stdout пуст.
+
+./filetool/filetool --input-file missing.txt --output-file /tmp/x.txt
+    Ожидание: код 66 (входной файл не открывается).
+
+./filetool/filetool --input-file tests/sample_input.txt \
+    --output-file /no/such/dir/x.txt
+    Ожидание: код 73 (выходной файл не открывается).
+
+3. Потоки и конвейер
+--------------------
+./filetool/filetool ... --show-stats > stats.txt
+    stdout содержит "Copied: ...", файл создаётся отдельно.
+
+./filetool/filetool --vot-takogo-vida 2> errors.txt
+    errors.txt содержит текст ошибки, stdout пуст.
+
+./filetool/filetool --input-file missing.txt --output-file x 2>&1
+    В одном файле объединены stdout и stderr.
+
+./filetool/filetool ... --show-stats | tr a-z A-Z
+    Ожидание: "COPIED: ... BYTES" — stdout первой программы читает вторая.
+
+4. CRUD и ссылочная целостность
+-------------------------------
+./database/vpddb --database /tmp/db.dat --init --seed
+    Ожидание: код 0; faculties=2, groups=3, students=5.
+
+./database/vpddb --database /tmp/db.dat --query 'SELECT students'
+    Ожидание: таблица из 5 студентов.
+
+./database/vpddb --database /tmp/db.dat \
+    --query 'SELECT students WHERE group_id = 11 ORDER BY name'
+    Ожидание: 301 Ivan Ivanov, 302 Petr Petrov.
+
+./database/vpddb --database /tmp/db.dat \
+    --query 'INSERT student 400 "Test Student" 11'
+    Ожидание: код 0; "inserted student id=400".
+
+./database/vpddb --database /tmp/db.dat \
+    --query 'INSERT student 400 "Duplicate" 11'
+    Ожидание: код 74; "already exists".
+
+./database/vpddb --database /tmp/db.dat \
+    --query 'INSERT student 402 "Bad FK" 999'
+    Ожидание: код 74; "foreign key violation".
+
+./database/vpddb --database /tmp/db.dat \
+    --query 'UPDATE students SET group_id = 12 WHERE id = 400'
+    Ожидание: код 0; "updated 1 student record(s)".
+
+./database/vpddb --database /tmp/db.dat \
+    --query 'DELETE groups WHERE id = 11'
+    Ожидание: код 74; группа 11 referenced by student.
+
+./database/vpddb --database /tmp/db.dat \
+    --query 'DELETE students WHERE id = 400'
+    Ожидание: код 0; после этого группа без студентов удаляется.
+
+5. Хранение и повреждения
+-------------------------
+./database/vpddb --database /tmp/db.dat --show-stats
+    Ожидание: counts и file_bytes.
+
+./database/vpddb --database /tmp/db.dat --check
+    Ожидание: "integrity: ok".
+
+Испортить первый байт файла (magic):
+    Ожидание: код 75, "bad magic".
+
+Испортить байт в payload:
+    Ожидание: код 75, "checksum mismatch".
+
+Обрезать файл до 20 байт:
+    Ожидание: код 75, "shorter than header".
+
+Указать несуществующий файл:
+    Ожидание: код 66, предложение использовать --init.
+
+6. JSON
+-------
+./database/vpddb --database /tmp/db.dat --export /tmp/export.json
+    Ожидание: JSON с faculties, groups, students.
+
+./database/vpddb --database /tmp/new.dat --init --import /tmp/export.json
+    Ожидание: код 0; counts совпадают с исходной базой.
+
+Повреждённый JSON (trailing comma):
+    Ожидание: код 65, "trailing comma".
+
+JSON с group_id = 999:
+    Ожидание: код 74, "foreign key violation".
+
+./json/json_demo json/statham.json
+    Ожидание: quotes: 6; все шесть типов JSON присутствуют.
+
+7. Язык запросов
+----------------
+SELECT teachers
+    Ожидание: код 65, "unknown table".
+
+SELECT students WHERE faculty_id = 1
+    Ожидание: код 65, "does not belong to table".
+
+SELECT students WHERE
+    Ожидание: код 65, незавершённый запрос.
+
+UPDATE students SET id = 9 WHERE id = 301
+    Ожидание: код 65, "primary key id cannot be updated".
+
+DELETE students
+    Ожидание: код 65, "DELETE requires a WHERE clause".
+
+printf 'SELECT students WHERE id = 304\n' | \
+    ./database/vpddb --database /tmp/db.dat --query -
+    Ожидание: код 0; строка 304 Ivan Smirnov.
+
+./database/vpddb --database /tmp/db.dat --file tests/demo_session.txt
+    Ожидание: последовательное выполнение INSERT/UPDATE/DELETE/SELECT.
+
+8. YAML и конфигурация
+----------------------
+cat config.yaml
+    database: students.dat
+    export_file: json/export.json
+    show_stats: false
+
+./database/vpddb --config config.yaml --database /tmp/db.dat \
+    --query 'SELECT faculties'
+    Ожидание: код 0; явный --database перекрывает значение из конфигурации.

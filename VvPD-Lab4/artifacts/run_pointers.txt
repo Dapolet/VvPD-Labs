@@ -1,0 +1,25 @@
+=== значение, адрес, указатель, разыменование ===
+value         = 304
+&value        = 0x16ae52974
+ptr           = 0x16ae52974
+*ptr          = 304
+value after *ptr = 305: 305
+&ptr          = 0x16ae52978
+sizeof(ptr)   = 8 байт
+sizeof(value) = 4 байт
+
+=== указатель на указатель ===
+pptr          = 0x16ae52978
+*pptr         = 0x16ae52974
+**pptr        = 305
+
+=== размеры указателей разных типов ===
+sizeof(char *)   = 8
+sizeof(int *)    = 8
+sizeof(double *) = 8
+sizeof(void *)   = 8
+
+=== адреса самих переменных ===
+&ptr == &value: no
+&ptr != &value: yes
+&ptr и &value — адреса разных объектов

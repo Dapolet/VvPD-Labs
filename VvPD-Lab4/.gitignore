@@ -1,0 +1,29 @@
+# Скомпилированные программы
+pointers/pointers
+pointers/arrays
+pointers/dynamic
+structs_files/structs
+structs_files/text_file
+structs_files/binary_file
+structs_files/pointer_trap
+cpp_memory/new_delete
+cpp_memory/raii
+fixed/fixed_demo
+linked_number/linked_number
+bigint/bigint_demo
+bigint/benchmark_O0
+bigint/benchmark_O2
+
+# Временные файлы демонстраций
+numbers.txt
+students.dat
+pointer_trap.dat
+raii_demo.txt
+artifacts/numbers.txt
+artifacts/students.dat
+artifacts/pointer_trap.dat
+
+# Редакторы и ОС
+.DS_Store
+Thumbs.db
+*.swp

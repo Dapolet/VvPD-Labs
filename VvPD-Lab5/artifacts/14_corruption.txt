@@ -1,0 +1,9 @@
+$ ./database/vpddb --database artifacts/bad_magic.dat --show-stats
+Database error: corrupted database artifacts/bad_magic.dat: bad magic
+exit=75
+$ ./database/vpddb --database artifacts/bad_checksum.dat --show-stats
+Database error: corrupted database artifacts/bad_checksum.dat: checksum mismatch (stored 0x67a1c934, actual 0x2d7b8ba9)
+exit=75
+$ ./database/vpddb --database artifacts/truncated.dat --show-stats
+Database error: corrupted database artifacts/truncated.dat: file is shorter than header
+exit=75

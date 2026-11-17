@@ -1,0 +1,3 @@
+$ ./filetool/filetool --input-file tests/sample_input.txt --output-file artifacts/copy.txt --show-stats
+Copied: 131 bytes
+cmp: output is byte-identical to input

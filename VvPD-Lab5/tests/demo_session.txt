@@ -1,0 +1,11 @@
+# Demonstration session for VPD Lab 05.
+# Every line is one query; comments and blank lines are ignored.
+SELECT faculties
+SELECT groups ORDER BY id
+SELECT students WHERE group_id = 11 ORDER BY name
+INSERT student 306 "Nikolai Orlov" 11
+SELECT students WHERE id = 306
+UPDATE students SET group_id = 12 WHERE id = 306
+SELECT students WHERE id = 306
+DELETE students WHERE id = 306
+SELECT students WHERE group_id = 12 ORDER BY name DESC

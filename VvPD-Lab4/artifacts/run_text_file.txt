@@ -1,0 +1,12 @@
+=== текстовая запись ===
+записано 5 строк в artifacts/numbers.txt
+
+=== текстовая запись закрыта, открываем заново ===
+line: 0
+line: 1
+line: 4
+line: 9
+line: 16
+
+read 5 numbers, sum = 30
+expected sum 0+1+4+9+16 = 30

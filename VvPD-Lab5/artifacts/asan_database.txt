@@ -1,0 +1,6 @@
+initialized database: artifacts/asan_students.dat
+id	name	group_id
+301	Ivan Ivanov	11
+302	Petr Petrov	11
+inserted student id=900
+exported database to: artifacts/asan_export.json

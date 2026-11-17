@@ -1,0 +1,37 @@
+=== инициализация и операторы . и -> ===
+a: Tom 38
+b: Bob 41
+p->name = Tom, p->age = 38
+(*p).age = 38
+p->age and (*p).age denote the same field: 38 == 38
+p == &a: yes
+Tom 38
+
+=== остальные формы struct ===
+employee: Tom 38
+anonymous: Anonymous 20
+PersonT: Carol 25
+NamedPerson: Dave 30
+
+=== размеры ===
+sizeof(struct Person) = 68
+sizeof(struct Employee) = 68
+sizeof(PersonT) = 68
+sizeof(NamedPerson) = 68
+
+=== заполнение и выравнивание ===
+sizeof(struct Example) = 12
+sum of field sizes = 6
+offsetof(a) = 0
+offsetof(b) = 4
+offsetof(c) = 8
+
+sizeof(struct Compact) = 8
+offsetof(b) = 0
+offsetof(a) = 4
+offsetof(c) = 5
+compact: b=304 a=A c=Z
+
+=== указатель внутри структуры ===
+sizeof(char[64]) = 64, sizeof(char *) = 8
+sizeof(struct Person) = 68, sizeof(name) + sizeof(age) = 68

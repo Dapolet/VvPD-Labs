@@ -1,0 +1,26 @@
+# Binaries and debug symbols
+*.dSYM/
+filetool/filetool
+filetool/argv_demo
+filetool/argv_void_demo
+database/vpddb
+json/json_demo
+artifacts/vpddb_asan
+artifacts/json_demo_asan
+artifacts/filetool_asan
+
+# Generated databases and logs
+students.dat
+students.dat.tmp
+students.dat.journal
+export.json
+*.tmp
+*.journal
+
+# Local artifacts that are convenient to regenerate
+artifacts/*.dat
+artifacts/export.json
+artifacts/copy.txt
+
+# macOS
+.DS_Store

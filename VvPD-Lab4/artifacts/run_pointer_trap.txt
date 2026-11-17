@@ -1,0 +1,16 @@
+=== структура с полем char * ===
+sizeof(StudentPtr) = 16
+offsetof(name) = 8
+student.name = 0x100b1bc28, string = "Ivan Ivanov"
+file contains 16 bytes; dump:
+00000000  01 00 00 00 00 00 00 00 28 bc b1 00 01 00 00 00  |........(.......|
+pointer bits in file = 0x0000000100b1bc28
+original pointer    = 0x100b1bc28
+numeric value is equal in this process: yes
+the string bytes themselves are not stored by fwrite
+
+=== структура с массивом char[64] ===
+sizeof(StudentFixed) = 68
+offsetof(name) = 4
+loaded.id = 2, loaded.name = "Anna Petrova"
+string is stored inside the structure and survives the file

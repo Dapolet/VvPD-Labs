@@ -1,0 +1,3 @@
+$ printf 'SELECT students WHERE id = 304\n' | ./database/vpddb --database artifacts/students.dat --query -
+id	name	group_id
+304	Ivan Smirnov	12

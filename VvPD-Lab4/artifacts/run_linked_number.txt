@@ -1,0 +1,19 @@
+=== двусвязное десятичное число ===
+source: 304159265358979323846264338327950288419716939937510
+forward: 304159265358979323846264338327950288419716939937510
+backward: 015739939617914882059723833462648323979853562951403
+length = 51, digit sum = 246
+
+sizeof(Digit) = 24 bytes
+payload per digit = 1 byte(s)
+nodes = 51, total node bytes = 1224
+contiguous payload would be 51 byte(s)
+
+=== push_front(9), push_back(2) ===
+forward: 93041592653589793238462643383279502884197169399375102
+backward: 20157399396179148820597238334626483239798535629514039
+length = 53
+
+=== освобождение всех узлов ===
+after free: head = 0x0, tail = 0x0, length = 0
+second decimal_free is safe: head = 0x0, length = 0

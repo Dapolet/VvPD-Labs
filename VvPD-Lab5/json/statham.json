@@ -1,0 +1,46 @@
+{
+  "author": "Jason Statham",
+  "subject": "internet memes",
+  "quote_count": 6,
+  "memes_are_verified": false,
+  "tags": ["action", "memes", "life"],
+  "primary_source": null,
+  "quotes": [
+    {
+      "text": "I don't need a gym; I just carry my own ego.",
+      "category": "life",
+      "verified": false,
+      "times_quoted": 1200
+    },
+    {
+      "text": "If you can't handle me at my worst, you don't deserve me at my best.",
+      "category": "life",
+      "verified": false,
+      "times_quoted": 980
+    },
+    {
+      "text": "I'm not a hero. I'm just a guy who can open a jar.",
+      "category": "humor",
+      "verified": false,
+      "times_quoted": 640
+    },
+    {
+      "text": "Never argue with a man who has a plan and a crowbar.",
+      "category": "action",
+      "verified": false,
+      "times_quoted": 510
+    },
+    {
+      "text": "The best revenge is to live well and drive a fast car.",
+      "category": "life",
+      "verified": false,
+      "times_quoted": 430
+    },
+    {
+      "text": "I don't do push-ups. I push the Earth down.",
+      "category": "humor",
+      "verified": false,
+      "times_quoted": 390
+    }
+  ]
+}

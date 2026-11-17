@@ -1,0 +1,63 @@
+{
+  "format": "vpd-lab05",
+  "version": 1,
+  "faculties": [
+    {
+      "id": 1,
+      "name": "Institute of Information Technology"
+    },
+    {
+      "id": 2,
+      "name": "Institute of Radio Engineering"
+    }
+  ],
+  "groups": [
+    {
+      "id": 11,
+      "name": "M3O-119BV-26",
+      "faculty_id": 1
+    },
+    {
+      "id": 12,
+      "name": "M3O-118BV-26",
+      "faculty_id": 1
+    },
+    {
+      "id": 21,
+      "name": "RT-119BV-26",
+      "faculty_id": 2
+    }
+  ],
+  "students": [
+    {
+      "id": 301,
+      "name": "Ivan Ivanov",
+      "group_id": 11
+    },
+    {
+      "id": 302,
+      "name": "Petr Petrov",
+      "group_id": 11
+    },
+    {
+      "id": 303,
+      "name": "Anna Sidorova",
+      "group_id": 12
+    },
+    {
+      "id": 304,
+      "name": "Ivan Smirnov",
+      "group_id": 12
+    },
+    {
+      "id": 305,
+      "name": "Maria Volkova",
+      "group_id": 21
+    },
+    {
+      "id": 900,
+      "name": "ASAN Test",
+      "group_id": 11
+    }
+  ]
+}

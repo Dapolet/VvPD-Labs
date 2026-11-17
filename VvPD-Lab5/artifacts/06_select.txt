@@ -1,0 +1,7 @@
+$ ./database/vpddb --database artifacts/students.dat --query 'SELECT students ORDER BY id'
+id	name	group_id
+301	Ivan Ivanov	11
+302	Petr Petrov	11
+303	Anna Sidorova	12
+304	Ivan Smirnov	12
+305	Maria Volkova	21

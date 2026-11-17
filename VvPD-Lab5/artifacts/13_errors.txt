@@ -1,0 +1,33 @@
+$ ./database/vpddb --database artifacts/students.dat --query INSERT\ student\ 301\ \"Duplicate\"\ 11
+Execution error: student with id 301 already exists
+exit=74
+$ ./database/vpddb --database artifacts/students.dat --query INSERT\ student\ 402\ \"Bad\ FK\"\ 999
+Execution error: foreign key violation: group with id 999 does not exist
+exit=74
+$ ./database/vpddb --database artifacts/students.dat --query DELETE\ groups\ WHERE\ id\ =\ 11
+Execution error: cannot delete group 11: student 301 references it
+exit=74
+$ ./database/vpddb --database artifacts/students.dat --query SELECT\ students\ WHERE\ faculty_id\ =\ 1
+Query error: parser error at position 22: field 'faculty_id' does not belong to table 'student'
+exit=65
+$ ./database/vpddb --database artifacts/students.dat --query SELECT\ teachers
+Query error: parser error at position 7: unknown table 'teachers'
+exit=65
+$ ./database/vpddb --database artifacts/students.dat --query SELECT\ students\ WHERE
+Query error: parser error at position 21: expected field name, found end of query
+exit=65
+$ ./database/vpddb --database artifacts/students.dat --query UPDATE\ students\ SET\ id\ =\ 9\ WHERE\ id\ =\ 301
+Query error: parser error at position 23: primary key id cannot be updated
+exit=65
+$ ./database/vpddb --database artifacts/students.dat --query DELETE\ students
+Query error: parser error at position 15: DELETE requires a WHERE clause
+exit=65
+$ ./database/vpddb --database artifacts/imported.dat --import artifacts/bad.json
+Import error: JSON error at byte 40: trailing comma in object
+exit=65
+$ ./database/vpddb --database artifacts/imported.dat --import artifacts/bad_fk.json
+Import error: foreign key violation: group with id 999 does not exist
+exit=74
+$ ./database/vpddb --database artifacts/missing.dat --show-stats
+Error: cannot read database artifacts/missing.dat: No such file or directory (use --init to create it)
+exit=66

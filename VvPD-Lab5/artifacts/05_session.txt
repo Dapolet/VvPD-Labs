@@ -1,0 +1,21 @@
+$ ./database/vpddb --database artifacts/students.dat --file tests/demo_session.txt
+id	name
+1	Institute of Information Technology
+2	Institute of Radio Engineering
+id	name	faculty_id
+11	M3O-119BV-26	1
+12	M3O-118BV-26	1
+21	RT-119BV-26	2
+id	name	group_id
+301	Ivan Ivanov	11
+302	Petr Petrov	11
+inserted student id=306
+id	name	group_id
+306	Nikolai Orlov	11
+updated 1 student record(s)
+id	name	group_id
+306	Nikolai Orlov	12
+deleted 1 student record(s)
+id	name	group_id
+304	Ivan Smirnov	12
+303	Anna Sidorova	12

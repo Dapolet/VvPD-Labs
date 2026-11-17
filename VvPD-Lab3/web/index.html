@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VPD Lab 3 — валидация строк и URI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Лабораторная работа № 3</h1>
+  <p>Валидация строковых данных, разбор URI и сравнение способов кодирования.</p>
+
+  <form id="validation-form" novalidate>
+    <fieldset>
+      <legend>Форма</legend>
+
+      <label for="fio">ФИО</label>
+      <input id="fio" name="fio" autocomplete="name" placeholder="Полетаев Дмитрий">
+      <p class="hint">2–3 слова, буквы русского или латинского алфавита, дефис.</p>
+      <p class="error" data-error-for="fio"></p>
+
+      <label for="group">Номер группы</label>
+      <input id="group" name="group" placeholder="М3О-119БВ-26">
+      <p class="hint">Формат: М3О-&lt;три цифры&gt;БВ-&lt;две цифры&gt;, буквы М и О — кириллические.</p>
+      <p class="error" data-error-for="group"></p>
+
+      <label for="phone">Телефон</label>
+      <input id="phone" name="phone" inputmode="tel" placeholder="+7 (999) 123-45-67">
+      <p class="hint">Один учебный формат: +7 (999) 123-45-67.</p>
+      <p class="error" data-error-for="phone"></p>
+
+      <label for="email">E-mail</label>
+      <input id="email" name="email" inputmode="email" placeholder="student@example.org">
+      <p class="hint">Упрощённая проверка: не полная реализация RFC 5322.</p>
+      <p class="error" data-error-for="email"></p>
+
+      <label for="date">Дата</label>
+      <input id="date" name="date" placeholder="2026-11-16">
+      <p class="hint">Форма YYYY-MM-DD и проверка существования даты (2026-02-31 не пройдёт).</p>
+      <p class="error" data-error-for="date"></p>
+
+      <label for="uri">URI</label>
+      <input id="uri" name="uri" placeholder="https://example.org:8443/api/v1/student-profile?id=304">
+      <p class="hint">Абсолютный http/https URI; проверяется штатным <code>new URL()</code>.</p>
+      <p class="error" data-error-for="uri"></p>
+    </fieldset>
+
+    <button type="submit">Проверить форму</button>
+    <p id="form-result" role="status"></p>
+  </form>
+
+  <h2>Примеры для проверки</h2>
+  <pre>valid:   Полетаев Дмитрий | М3О-119БВ-26 | +7 (999) 123-45-67 | student@example.org | 2026-11-16
+invalid: Полетаев | M3O-119БВ-26 | 8 999 123 45 67 | student@ | 2026-02-31</pre>
+
+  <h2>Гомоглифы: кириллица и латиница</h2>
+  <pre id="homoglyph-output"></pre>
+
+  <h2>Разбор URI: регулярное выражение и new URL()</h2>
+  <pre id="uri-output"></pre>
+
+  <h2>Percent-encoding, HTML-сущность и Base64</h2>
+  <pre id="percent-output"></pre>
+
+  <script src="validation.js"></script>
+</body>
+</html>

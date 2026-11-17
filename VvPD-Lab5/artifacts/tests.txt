@@ -1,0 +1,102 @@
+PASS: argv demo exits with 0
+PASS: argv demo prints argc
+PASS: argv demo preserves argument with space
+PASS: main(void) demo exits with 0
+PASS: main(void) demo explains absence of parameters
+PASS: vpddb --show-args prints argv
+PASS: vpddb --show-args prints argc
+PASS: filetool copies a file
+PASS: filetool reports copied bytes
+PASS: filetool output is byte-identical
+PASS: filetool rejects an unknown option
+PASS: filetool writes unknown-option error to stderr
+PASS: filetool keeps stdout clean on unknown option
+PASS: filetool reports missing input file
+PASS: filetool reports unwritable output path
+PASS: pipe passes stdout of filetool to tr
+PASS: database --init --seed succeeds
+PASS: seed has two faculties
+PASS: seed has three groups
+PASS: seed has five students
+PASS: database integrity check succeeds
+PASS: integrity check prints ok
+PASS: SELECT students returns all rows
+PASS: SELECT students contains Ivan Ivanov
+PASS: SELECT students contains Maria Volkova
+PASS: SELECT with WHERE group_id
+PASS: WHERE group_id = 11 finds student 301
+PASS: WHERE group_id = 11 excludes student 303
+PASS: SELECT with ORDER BY name DESC
+PASS: ORDER BY DESC puts Petr before Ivan
+PASS: SELECT with two AND conditions
+PASS: two conditions find student 301
+PASS: two conditions exclude student 302
+PASS: INSERT student succeeds
+PASS: INSERT reports assigned id
+PASS: INSERT with automatic id succeeds
+PASS: automatic id is 401
+PASS: delete automatic-id student
+PASS: duplicate primary key is rejected
+PASS: duplicate key message mentions id
+PASS: missing foreign key is rejected
+PASS: foreign key message mentions group
+PASS: UPDATE student succeeds
+PASS: UPDATE reports one record
+PASS: updated row is visible
+PASS: updated student is in group 12
+PASS: deleting referenced group is rejected
+PASS: referential integrity message mentions student
+PASS: insert new group 99
+PASS: insert student 403 in group 99
+PASS: delete non-empty group 99 is rejected
+PASS: delete student 403
+PASS: delete now-empty group 99
+PASS: journal contains mutating operations
+PASS: journal records INSERT
+PASS: journal records UPDATE
+PASS: journal records DELETE
+PASS: export database to JSON
+PASS: export file is non-empty
+PASS: export contains students array
+PASS: export contains student data
+PASS: export contains faculty foreign keys
+PASS: import JSON into a new database
+PASS: import restores six students
+PASS: imported database is queryable
+PASS: imported student 303 is present
+PASS: json_demo parses statham.json
+PASS: statham has six quotes
+PASS: statham demonstrates boolean type
+PASS: statham demonstrates null type
+PASS: damaged JSON syntax is rejected
+PASS: JSON with broken foreign key is rejected
+PASS: unknown table is a syntax error
+PASS: unknown table message
+PASS: field of another table is a syntax error
+PASS: foreign field message
+PASS: incomplete query is a syntax error
+PASS: incomplete query message
+PASS: primary key cannot be updated
+PASS: primary key update message
+PASS: DELETE without WHERE is rejected
+PASS: DELETE requires WHERE
+PASS: query from stdin finds student 304
+PASS: query file executes several statements
+PASS: run demo_session.txt
+PASS: query file inserted and found student 306
+PASS: query file deleted student 306
+PASS: missing database file is an input error
+PASS: bad magic is detected
+PASS: checksum mismatch is detected
+PASS: truncated storage is detected
+PASS: config.yaml is accepted
+PASS: config run reads database
+PASS: config export_file is used by --export
+PASS: config export file was created
+PASS: config show_stats is applied
+PASS: data persists after reopen
+PASS: persisted student 400 is present
+PASS: help exits with 0
+PASS: help mentions --query
+
+Total: 100 passed, 0 failed

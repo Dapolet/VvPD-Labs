@@ -1,0 +1,13 @@
+=== std::vector владеет динамическим массивом ===
+size = 5, capacity = 5, sum = 30
+after push_back: size = 6, capacity = 10
+
+=== std::unique_ptr --- единственный владелец ===
+*value = 304
+after move: original = null, owner = 304
+
+=== RAII для FILE * ===
+FileHandle: opened raii_demo.txt
+FileHandle: closed in destructor
+
+scope ended: vector, unique_ptr and FileHandle released automatically

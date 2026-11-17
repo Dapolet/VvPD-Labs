@@ -1,0 +1,9 @@
+$ ./database/vpddb --database artifacts/imported.dat --init --import artifacts/export.json --show-stats
+initialized database: artifacts/imported.dat
+imported JSON: artifacts/export.json (faculties=2, groups=3, students=5)
+database: artifacts/imported.dat
+faculties: 2
+groups: 3
+students: 5
+index: open addressing, id -> position
+file_bytes: 664

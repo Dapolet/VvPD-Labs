@@ -1,0 +1,22 @@
+=== new/delete для одного объекта ===
+*value = 304
+value after delete = nullptr
+
+=== new[]/delete[] ===
+sum of 0,1,4,9,16 = 30
+
+=== конструктор и деструктор ===
+Student::Student()
+student->id = 304
+Student::~Student()
+
+=== malloc не вызывает конструктор ===
+malloc returned 0x600002b00040 (raw memory, no constructor)
+
+=== std::bad_alloc ===
+allocation failed: std::bad_alloc
+
+=== std::nothrow ===
+nothrow allocation succeeded
+
+sizeof(Student) = 4

@@ -1,0 +1,28 @@
+=== массив и указатель ===
+sizeof(a)       = 20 байт
+sizeof(a[0])    = 4 байт
+sizeof(&a[0])   = 8 байт
+sizeof(&a)      = 8 байт
+number of items = 5
+
+=== a[i] и *(a + i) ===
+i=0  a[i]=10  *(a+i)=10  &a[i]=0x16b34a968  a+i=0x16b34a968
+i=1  a[i]=20  *(a+i)=20  &a[i]=0x16b34a96c  a+i=0x16b34a96c
+i=2  a[i]=30  *(a+i)=30  &a[i]=0x16b34a970  a+i=0x16b34a970
+i=3  a[i]=40  *(a+i)=40  &a[i]=0x16b34a974  a+i=0x16b34a974
+i=4  a[i]=50  *(a+i)=50  &a[i]=0x16b34a978  a+i=0x16b34a978
+
+=== арифметика указателей ===
+address=0x16b34a968  value=10
+address=0x16b34a96c  value=20
+address=0x16b34a970  value=30
+address=0x16b34a974  value=40
+address=0x16b34a978  value=50
+second - first = 1 (в элементах int)
+(char *)second - (char *)first = 4 байт
+sizeof(int) = 4
+
+=== &a и &a + 1 ===
+&a     = 0x16b34a968
+&a + 1 = 0x16b34a97c
+(char *)(&a + 1) - (char *)&a = 20 байт

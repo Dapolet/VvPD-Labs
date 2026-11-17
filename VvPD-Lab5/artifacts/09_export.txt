@@ -1,0 +1,2 @@
+$ ./database/vpddb --database artifacts/students.dat --export json/export.json
+exported database to: json/export.json

@@ -1,0 +1,14 @@
+=== BigUInt limb benchmark ===
+bits = 4096, iterations/run = 200000, runs = 10, build = -O2
+compiler = 16.2.0
+
+type     op      opt       min       max      mean    median
+------------------------------------------------------------------------
+uint16   add     -O2 min=  547.115 max=  558.235 mean=  550.730 median=  550.372 ns/op
+uint16   double  -O2 min=  303.775 max=  315.000 mean=  307.261 median=  305.805 ns/op
+uint32   add     -O2 min=  206.285 max=  208.085 mean=  206.973 median=  206.803 ns/op
+uint32   double  -O2 min=  155.045 max=  156.620 mean=  155.661 median=  155.555 ns/op
+uint64   add     -O2 min=   97.580 max=  102.055 mean=  100.716 median=  101.490 ns/op
+uint64   double  -O2 min=   70.355 max=   71.110 mean=   70.667 median=   70.520 ns/op
+
+sink = 0x6f0fcadfb6e38681

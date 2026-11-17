@@ -1,0 +1,19 @@
+# Скомпилированные программы
+strings/ascii
+strings/utf8
+strings/types
+strings/unicode_identifiers
+regex/generator
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Редакторы и ОС
+.DS_Store
+Thumbs.db
+*.swp
+
+# Локальные артефакты
+build/
+artifacts/

@@ -1,0 +1,9 @@
+=== бинарная запись массива структур ===
+sizeof(Student) = 72, records = 3
+fwrite: written = 3
+file size = 216 bytes, expected = 216 bytes
+fread: got = 3
+  1 | Ivan Ivanov      | 304
+  2 | Anna Petrova     | 304
+  3 | Petr Sidorov     | 305
+round-trip fields match: yes

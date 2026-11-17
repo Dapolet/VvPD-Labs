@@ -1,0 +1,4 @@
+VPD Lab 05
+filetool copies bytes, not text lines.
+Линия с UTF-8: лабораторная работа № 5.
+End of sample.

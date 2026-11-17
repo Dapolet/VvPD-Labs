@@ -1,0 +1,4 @@
+$ ./database/vpddb --config config.yaml --database artifacts/students.dat --query "SELECT faculties"
+id	name
+1	Institute of Information Technology
+2	Institute of Radio Engineering

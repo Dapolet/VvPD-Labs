@@ -1,0 +1,10 @@
+Error: unknown option: --vot-takogo-vida
+Usage: filetool --input-file <file> --output-file <file> [--show-stats]
+       filetool --show-args [other options]
+
+Options:
+  --input-file <file>   source file
+  --output-file <file>  destination file
+  --show-stats          print the number of copied bytes to stdout
+  --show-args           print argc and every argv element
+  --help                show this help
